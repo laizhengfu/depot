@@ -6,7 +6,7 @@ class ProductTest < ActiveSupport::TestCase
   #   assert true
   # end
   def new_product(image_url)
-    Product.new(:title => "my title",
+    Product.new(:title => "my titlemy titlemy title my title",
                 :description => "my description",
                 :price => 1,
                 :image_url => image_url)
@@ -21,7 +21,7 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:image_url].any?
   end
   test "price must be positive" do
-    product = Product.new(:title => "my title",
+    product = Product.new(:title => "my titlemy titlemy titlemy title",
                           :description => "my description",
                           :image_url => 'zzz.jpg')
     product.price = -1
