@@ -1,3 +1,8 @@
+<div id="side">
+  <div id="cart">
+    <%= render @cart %>
+  </div>
+</div>
 <h1>Store#index
   <% if @view_count > 5 %>
       <%= @view_count %> <%= "time".pluralize(@view_count) %>
@@ -17,7 +22,7 @@
       <div class="price_line">
         <!--<span class="price"><%= sprintf("$%0.02f", product.price) %></span>-->
         <span class="price"><%= number_to_currency(product.price) %></span>
-        <%= button_to 'Add to Cart', line_items_path(:product_id => product) %>
+        <%= button_to 'Add to Cart', line_items_path(:product_id => product), :remote => true %>
       </div>
     </div>
 <% end %>
