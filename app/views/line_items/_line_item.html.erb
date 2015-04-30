@@ -1,6 +1,11 @@
 <tr<%= highlight line_item == @current_item, "on" %>>
-<td><%= line_item.quantity %> &times;</td>
-<td><%= line_item.product.title %></td>
-<td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
-<td><%= button_to 'delete', line_item, :method => :delete, :confirm => 'Are you sure?' %></td>
+  <td><%= line_item.quantity %> &times;</td>
+  <td><%= line_item.product.title %></td>
+  <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+  <td>
+    <%= button_to 'delete', line_item, :method => :delete, :confirm => 'Are you sure?' %>
+    <%= button_to '+', line_item, :params => {:button_type => 'plus'}, :method => :put %>
+    <%= button_to '-', line_item, :params => {:button_type => 'minus'}, :method => :put %>
+
+  </td>
 </tr>

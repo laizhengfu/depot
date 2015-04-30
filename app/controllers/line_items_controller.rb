@@ -44,6 +44,16 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
+    # render json: params
+    if(params[:button_type].present?)
+      if params[:button_type] == 'plus'
+        @line_item.update_quantity 1
+      else
+        @line_item.update_quantity -1
+      end
+      redirect_to store_path, notice: 'Line item was successfully updated.'
+      return
+    end
     respond_to do |format|
       if @line_item.update(line_item_params)
         format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
